@@ -7,7 +7,7 @@ namespace Archer
 
     public class CameraController : MonoBehaviour
     {
-
+        private Vector3 newPos;
         // El objeto al que va a seguir la cámara
         [SerializeField]
         private Transform target;
@@ -35,7 +35,18 @@ namespace Archer
 
         private void Update()
         {
-  
+
+            newPos = target.position - target.forward * distance;
+          
+            
+            this.transform.position = newPos + offset;
+            transform.LookAt(target.position + offset);
+
+            /*
+            transform.LookAt(target.position + offset);
+            transform.position = target.position - target.forward * distance + offset;
+            */
+
         }
 
     }
