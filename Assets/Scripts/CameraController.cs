@@ -37,15 +37,11 @@ namespace Archer
         {
 
             newPos = target.position - target.forward * distance;
-          
             
             this.transform.position = newPos + offset;
+
             transform.LookAt(target.position + offset);
 
-            /*
-            transform.LookAt(target.position + offset);
-            transform.position = target.position - target.forward * distance + offset;
-            */
 
         }
 
