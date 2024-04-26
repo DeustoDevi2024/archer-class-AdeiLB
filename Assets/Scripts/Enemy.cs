@@ -14,13 +14,14 @@ namespace Archer
         private int hitPoints;
 
         private Animator animator;
-        private GameObject sun = GameObject.Find("Directional Light");
+        private GameObject sun;
 
         public event IScoreProvider.ScoreAddedHandler OnScoreAdded;
 
         private void Awake()
         {
             animator = GetComponent<Animator>();
+            sun = GameObject.Find("Directional Light");
         }
 
         // Método que se llamará cuando el enemigo reciba un impacto
@@ -39,15 +40,18 @@ namespace Archer
         private void Die()
         {
             StartCoroutine(Lightning());
-            Destroy(this.gameObject);
+
+            
 
         }
 
         IEnumerator Lightning()
         {
-            transform.rotation = Quaternion.Euler(90, 0, 0);
+            Debug.Log("Rayo");
+            sun.transform.rotation = Quaternion.Euler(90, 0, 0);
             yield return new WaitForSeconds(3);
-            transform.rotation = Quaternion.Euler(180, 0, 0);
+            sun.transform.rotation = Quaternion.Euler(180, 0, 0);
+            Destroy(this.gameObject);
         }
 
 
