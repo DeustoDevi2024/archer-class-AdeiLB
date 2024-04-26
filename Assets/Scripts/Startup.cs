@@ -13,11 +13,14 @@ namespace Archer
 
         private void Awake()
         {
+           
             var scoreDisplays = new IScoreDisplay[] { new ConsoleScoreDisplay() };
 
             new ScoreManager(enemies, scoreDisplays);
+            
         }
 
+       
     }
 
 }
