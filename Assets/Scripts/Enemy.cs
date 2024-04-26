@@ -38,15 +38,21 @@ namespace Archer
 
         private void Die()
         {
-            transform.rotation = Quaternion.Euler(90, 0, 0);
-            //yield return new WaitForSeconds(3);
-            transform.rotation = Quaternion.Euler(180, 0, 0);
+            StartCoroutine(Lightning());
             Destroy(this.gameObject);
 
         }
 
-      
+        IEnumerator Lightning()
+        {
+            transform.rotation = Quaternion.Euler(90, 0, 0);
+            yield return new WaitForSeconds(3);
+            transform.rotation = Quaternion.Euler(180, 0, 0);
+        }
+
+
     }
 
+    
 
 }
